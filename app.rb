@@ -19,26 +19,22 @@ forecast = ForecastIO.forecast(42.0574063,-87.6722787).to_hash
 # puts news
 
 get "/" do
-  
-#     results = Geocoder.search(params["location"])
-#     lat_long = results.first.coordinates # => [lat, long]
-#     lat = "#{lat_long [0]}"
-#     long = "#{lat_long [1]}"
-#     @forecast = ForecastIO.forecast("#{lat_long[0]}","#{lat_long[1]}").to_hash
-#    "#{lat_long[0]} #{lat_long[1]}"
-   
+     
     
     view "ask"
 end
 
 get "/news" do
     
-    results = Geocoder.search(params["location"])
+    puts params["location"]
+
+    @results = Geocoder.search(params["location"])
+    
     
     @lat_long = results.first.coordinates # => [lat, long]
     @location = results.first.city
 
-    # Define the lat and long
+    # # Define the lat and long
     @lat = "#{lat_long [0]}"
     @long = "#{lat_long [1]}"
 
@@ -55,8 +51,8 @@ get "/news" do
     # puts forecast["daily"]["data"][2]["temperatureHigh"]
     
     for day_forecast in forecast["daily"]["data"]
-    puts "A high temperature of #{day["temperatureHigh"]} and #{day["summary"]}."
-    end
+    puts "A high temperature of #{day_forecast["temperatureHigh"]} and #{day_forecast["summary"]}."
+    end     
 
 
     view "news"

@@ -23,15 +23,15 @@
   <body>
 
     <div class="container mt-5">
-      <h1>News</h1>
-    </div>
+      <h1>All you need to know for the day!</h1>
+      <h2> You are at <%=@lat%>, <%=@long%>. </h2>
+      
+      <p>In {@location}, it is currently {@current_temperature} and {@conditions} </p>
+      "#{forecast["daily"]["data"][1]["temperatureHigh"]} #{forecast["daily"]["data"][2]["temperatureHigh"]}"
+    
+      </div>
 
-    <form action="/">
-        <label>Enter your location:</label>
-        <input type="text" name="location">
-        "#{lat_long [0]} #{lat_long [1]}"
-
-    </form>
+    
 
     
    
