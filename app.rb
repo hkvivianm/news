@@ -31,24 +31,24 @@ get "/news" do
     @results = Geocoder.search(params["location"])
     
     
-    @lat_long = results.first.coordinates # => [lat, long]
-    @location = results.first.city
+    @lat_long = @results.first.coordinates # => [lat, long]
+    @location = @results.first.city
 
     # # Define the lat and long
-    @lat = "#{lat_long [0]}"
-    @long = "#{lat_long [1]}"
+    @lat = "#{@lat_long [0]}"
+    @long = "#{@lat_long [1]}"
 
     # Results from Geocoder
-    @forecast = ForecastIO.forecast("#{lat}" , "#{long}").to_hash
+    @forecast = ForecastIO.forecast("#{@lat}" , "#{@long}").to_hash
     @current_temperature = forecast["currently"]["temperature"]
     @conditions = forecast["currently"]["summary"]
+    @summary = forecast["daily"]["summary"]
 
-    puts "In #{location}, it is currently #{current_temperature} and #{conditions}"
+    puts "In #{@location}, it is currently #{@current_temperature} and #{@conditions}"
 
-    # high_temperature = forecast["daily"]["data"][0]["temperatureHigh"]
-    # puts high_temperature
-    # puts forecast["daily"]["data"][1]["temperatureHigh"]
-    # puts forecast["daily"]["data"][2]["temperatureHigh"]
+    @high_temperature = forecast["daily"]["data"][0]["temperatureHigh"]
+    @low_temperature = forecast["daily"]["data"][0]["temperatureLow"]
+    
     
     for day_forecast in forecast["daily"]["data"]
     puts "A high temperature of #{day_forecast["temperatureHigh"]} and #{day_forecast["summary"]}."
