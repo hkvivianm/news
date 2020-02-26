@@ -3,6 +3,7 @@ require "sinatra/reloader"
 require "geocoder"
 require "forecast_io"
 require "httparty"
+require "date"
 def view(template); erb template.to_sym; end
 before { puts "Parameters: #{params}" }                                     
 
@@ -51,6 +52,7 @@ get "/news" do
     
     @daily_forecast = for day in @forecast["daily"]["data"] do
       "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
+        puts(DateTime.strptime(day["time"].to_s,'%s'))
       end     
 
     @title = Array.new
