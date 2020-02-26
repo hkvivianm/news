@@ -27,32 +27,31 @@
       <h2>Great that you are at <%=@location%>. </h2>
       <p>Latitude: <%=@lat%>, Longitude: <%=@long%> </p>
       
-      <p>Current weather in <%=@location%> is currently <%=@current_temperature%> degrees and with <%=@conditions%>. <%=@summary%> </p>
-      <p> Daily high <%=@high_temperature%> degrees and Daily low <%=@low_temperature%> degrees. </p>
-      <p> Extended Forecast: </p>       
+      <h3>Current weather in <%=@location%> is currently <%=@current_temperature%> degrees and with <%=@conditions%>. <%=@summary%> </h3>
+      <h3> Daily high <%=@high_temperature%> degrees and Daily low <%=@low_temperature%> degrees. </h3>
+      <p> Extended Forecast for the coming week: </p>       
          
              <ul>
                 <% for day in @daily_forecast %>
-                <li>A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
+                <li> A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
                 <% end %>
              </ul>
 
 
     </div>
 
-     </div>
-        <hr>
+     <div class="container mt-5">
+        
         <h1>National Headlines <%=@date%></h1><br>
-        <div class = "row">
+        <ul>
             <% @title.zip(@story_url).each do |title, url| %>
-                <div class="card-fluid">
-                        <div class="card-body">
-                            <h5 class="card-title"><%=title%></h5>
-                            <a href="<%=url%>" class="btn btn-primary">View Original Article</a>
-                        </div>
-                </div>  
-            <% end %>               
-        </div>
+               <li><%=title%></li>
+            <a href="<%=url%>" class="btn btn-primary">View Original Article</a>
+         
+            <% end %>    
+        </ul>            
+    </div>
+   
 
     
 

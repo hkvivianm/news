@@ -49,8 +49,8 @@ get "/news" do
     @low_temperature = forecast["daily"]["data"][0]["temperatureLow"]
     
     
-    @daily_forecast = for day in @forecast["daily"]["data"]
-    "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
+    @daily_forecast = for day in @forecast["daily"]["data"] do
+      "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
       end     
 
     @title = Array.new

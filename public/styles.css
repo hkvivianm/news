@@ -1,0 +1,22 @@
+body{
+    font-family: 'Sintony', sans-serif;
+    color: darkslategrey;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(18, 18, 110);
+    font-family: 'Kalam', cursive; 
+}
+h2{
+    font-size: 50px;
+    font-weight: 500;
+    color: darkmagenta;
+    font-family: 'Kalam', cursive;    
+}
+h3{
+    color:rgb(27, 135, 141);
+    font-size: 18px;
+    font-weight: 800;
+}
