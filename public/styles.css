@@ -4,19 +4,19 @@ body{
 }
 
 h1{
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 500;
     color: rgb(18, 18, 110);
     font-family: 'Kalam', cursive; 
 }
 h2{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 500;
     color: darkmagenta;
     font-family: 'Kalam', cursive;    
 }
 h3{
-    color:rgb(27, 135, 141);
-    font-size: 18px;
+    color:rgb(66, 205, 212);
+    font-size: 16px;
     font-weight: 800;
 }

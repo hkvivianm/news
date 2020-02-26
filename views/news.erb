@@ -36,8 +36,15 @@
                 <li> A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
                 <% end %>
              </ul>
+    </div>
 
-
+    <div class="container mt-5">
+    <form action="/news">
+    <h3> See another location </h3>    
+        <label>Enter your location:</label>
+        <input type="text" name="location">
+        <button class="btn btn-info">Submit Text</button>
+    </form>
     </div>
 
      <div class="container mt-5">
@@ -46,7 +53,7 @@
         <ul>
             <% @title.zip(@story_url).each do |title, url| %>
                <li><%=title%></li>
-            <a href="<%=url%>" class="btn btn-primary">View Original Article</a>
+            <a href="<%=url%>" class="btn btn-info">View Original Article</a>
          
             <% end %>    
         </ul>            
