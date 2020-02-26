@@ -49,10 +49,9 @@ get "/news" do
     @high_temperature = forecast["daily"]["data"][0]["temperatureHigh"]
     @low_temperature = forecast["daily"]["data"][0]["temperatureLow"]
     
-    
-    for day_forecast in forecast["daily"]["data"]
-    puts "A high temperature of #{day_forecast["temperatureHigh"]} and #{day_forecast["summary"]}."
-    end     
+    @daily_forecast = for day in @forecast["daily"]["data"]
+    "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
+      end     
 
 
     view "news"
