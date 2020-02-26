@@ -52,7 +52,9 @@ get "/news" do
     
     @daily_forecast = for day in @forecast["daily"]["data"] do
       "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
-        puts(DateTime.strptime(day["time"].to_s,'%s'))
+        puts("test",DateTime.strptime(day["time"].to_s,'%s'))
+        # puts("test",Time.at(day["time"].strftime("%m/%d/%y")))
+        
       end     
 
     @title = Array.new

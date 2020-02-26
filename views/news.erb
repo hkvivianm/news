@@ -33,7 +33,7 @@
          
              <ul>
                 <% for day in @daily_forecast %>
-                <li> <%=DateTime.strptime(day["time"].to_s,'%k')%> A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
+                <li> <%=DateTime.strptime(day["time"].to_s,'%s')%> A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
                 <% end %>
              </ul>
     </div>
