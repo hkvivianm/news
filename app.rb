@@ -49,9 +49,14 @@ get "/news" do
     @high_temperature = forecast["daily"]["data"][0]["temperatureHigh"]
     @low_temperature = forecast["daily"]["data"][0]["temperatureLow"]
     
+    
     @daily_forecast = for day in @forecast["daily"]["data"]
     "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
       end     
+
+    @news_headlines = for article in @articles["articles"]["source"]
+    "News from #{article["name"]}:#{article["title"]}. More can be found at #{article["url"]} "
+        end
 
 
     view "news"

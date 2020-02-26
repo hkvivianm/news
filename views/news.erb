@@ -29,7 +29,23 @@
       
       <p>Current weather in <%=@location%> is currently <%=@current_temperature%> degrees and with <%=@conditions%>. <%=@summary%> </p>
       <p> Daily high <%=@high_temperature%> degrees and Daily low <%=@low_temperature%> degrees. </p>
-     
+      <p> Extended Forecast: </p>       
+         
+             <ul>
+                <% for day in @daily_forecast %>
+                <li>A high of <%=day["temperatureHigh"] %> and <%= day["summary"] %></li>
+                <% end %>
+             </ul>
+
+
+    </div>
+
+    <div class="container mt-5">
+            <ul>
+                <% for article in @articles %>
+                <li>News from <%=article["name"]%>:<%=article["title"]%>. More can be found at <%=article["url"]%></li>
+                <% end %>
+             </ul>
 
     </div>
 
