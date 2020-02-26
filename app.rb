@@ -19,8 +19,7 @@ forecast = ForecastIO.forecast(42.0574063,-87.6722787).to_hash
 # puts news
 
 get "/" do
-     
-    
+         
     view "ask"
 end
 
@@ -54,9 +53,21 @@ get "/news" do
     "Temperature high of #{day["temperatureHigh"]}. #{day["summary"]}"
       end     
 
-    @news_headlines = for article in @articles["articles"]["source"]
-    "News from #{article["name"]}:#{article["title"]}. More can be found at #{article["url"]} "
-        end
+    @title = Array.new
+    @story_url = Array.new
+    a = 0
+
+    for story in news["articles"] do
+        @title[a] = story["title"]
+        @story_url[a] = story["url"]
+        a = a+1
+    end
+
+    time = Time.new
+    @year = time.year
+    @month = time.month
+    @day = time.day
+    @date = Date.new(@year, @month, @day)
 
 
     view "news"

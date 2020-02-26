@@ -40,37 +40,21 @@
 
     </div>
 
-    <div class="container mt-5">
-            <ul>
-                <% for article in @articles %>
-                <li>News from <%=article["name"]%>:<%=article["title"]%>. More can be found at <%=article["url"]%></li>
-                <% end %>
-             </ul>
-
-    </div>
-
-    <div class="container mt-5">
-    <h1>Top news for the day!</h1>
-
-        <div class="row">
-            <div class="col-3">Title</div>
-            <div class="col-7">Description</div>
-            <div class="col-2">Link!</div>
+     </div>
+        <hr>
+        <h1>National Headlines <%=@date%></h1><br>
+        <div class = "row">
+            <% @title.zip(@story_url).each do |title, url| %>
+                <div class="card-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=title%></h5>
+                            <a href="<%=url%>" class="btn btn-primary">View Original Article</a>
+                        </div>
+                </div>  
+            <% end %>               
         </div>
+
     
-        <div class="row">
-            <div class="col-3"><a href="<%=@article1url%>"><%=@article1title%></a></div>
-            <div class="col-7"><%=@article1des%></div>
-            <div class="col-2"><%=@article1source%>!</div>
-        </div>
-
-        <div class="row">
-            <div class="col-3"><a href="<%=@article2url%>"><%=@article2title%></a></div>
-            <div class="col-7"><%=@article2des%></div>
-            <div class="col-2"><%=@article2source%>!</div>
-        </div>
-
-    </div>
 
     
    
